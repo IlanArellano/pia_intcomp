@@ -1,0 +1,52 @@
+---
+import MenuItemsContrainer from "./MenuItemsContrainer.astro";
+---
+
+<header
+  id="header"
+  class="relative bg-logo flex items-center justify-between py-3 px-5"
+>
+  <section>
+    <img class="w-[120px]" src="img/oa4.jpg" alt="" />
+  </section>
+
+  <section class="menu">
+    <nav>
+      <ul class="hidden sm:flex gap-3">
+        <MenuItemsContrainer />
+      </ul>
+      <button id="bar-menu" class="block sm:hidden">
+        <i class="fa-solid fa-bars text-3xl"></i>
+      </button>
+    </nav>
+  </section>
+  <ul
+    id="menu-small"
+    class="fixed px-5 flex flex-col gap-5 bg-[white] z-10 left-0 w-screen"
+  >
+    <MenuItemsContrainer />
+  </ul>
+</header>
+
+<script>
+  let show = false;
+  //Config
+  const menuSmall = document.querySelector<HTMLElement>("#menu-small");
+
+  const header = document.querySelector("#header");
+  const headerHeight = header?.clientHeight;
+
+  menuSmall!.style.top = `${headerHeight}px`;
+  menuSmall!.style.setProperty("display", "none", "important");
+
+  const menuButton = document.querySelector("#bar-menu");
+  menuButton?.addEventListener("click", () => {
+    show = !show;
+    console.log({ show });
+    menuSmall!.style.setProperty(
+      "display",
+      show ? "inline" : "none",
+      "important"
+    );
+  });
+</script>

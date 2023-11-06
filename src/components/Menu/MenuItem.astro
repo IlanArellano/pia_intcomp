@@ -1,0 +1,58 @@
+---
+interface Props {
+  href: string;
+  title: string;
+}
+
+const { href, title } = Astro.props;
+const { pathname } = Astro.url;
+---
+
+<li class="menu-item flex justify-between relative w-full">
+  <div class="card card-transition"></div>
+  {pathname === href && <div class="card item-selected" />}
+  <a class="flex gap-3 w-full" href={href}>
+    <i class="fas fa-home text-xl"></i>
+    <span class="flex-[1] text-right">{title}</span>
+  </a>
+</li>
+
+<script>
+  const menuItems = document.querySelectorAll("li.menu-item");
+  menuItems.forEach((item) => {
+    const cardTransition = item.querySelector(".card-transition");
+    item.addEventListener("mouseenter", () => {
+      if (cardTransition)
+        cardTransition.classList.add("card-transition-animation");
+    });
+
+    item.addEventListener("mouseleave", () => {
+      if (cardTransition)
+        cardTransition.classList.remove("card-transition-animation");
+    });
+  });
+</script>
+
+<style>
+  .card {
+    width: 100%;
+    height: 5px;
+    border-radius: 10px;
+    position: absolute;
+    top: -0.75rem;
+  }
+  .card-transition {
+    background: black;
+    transition: transform 0.3s ease;
+    transform: scale(0);
+    z-index: 2;
+  }
+  .card-transition-animation {
+    transform: scale(1);
+  }
+
+  .item-selected {
+    background: gray;
+    z-index: 1;
+  }
+</style>
