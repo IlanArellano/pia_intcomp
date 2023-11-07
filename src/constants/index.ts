@@ -32,7 +32,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
     title: "Color",
     image:
-      "https://static.wixstatic.com/media/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png/v1/fill/w_148,h_148,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png",
+      "https://i.pinimg.com/1200x/18/52/66/1852661ef9c6d8d09a070830267b929c.jpg",
     prices: [
       {
         title: "Mens Color",
@@ -60,7 +60,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
     title: "Foil Color",
     image:
-      "https://static.wixstatic.com/media/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png/v1/fill/w_148,h_148,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png",
+      "https://www.creativefabrica.com/wp-content/uploads/2022/01/04/Woman-Hair-Logo-Vector-Template-Design-Graphics-22927566-1.jpg",
     prices: [
       {
         title: "Full Foil with one color",
@@ -84,7 +84,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
     title: "Styling",
     image:
-      "https://static.wixstatic.com/media/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png/v1/fill/w_148,h_148,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png",
+      "https://seeklogo.com/images/H/hair-cut-logo-CBDD899A7D-seeklogo.com.png",
     prices: [
       {
         title: "Chemical Straightner",
@@ -108,7 +108,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
     title: "Hair Care",
     image:
-      "https://static.wixstatic.com/media/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png/v1/fill/w_148,h_148,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/7e3fa0_30852f50c04840b9a548c85ff70dbec2.png",
+      "https://s.tmimgcdn.com/scr/1200x750/251400/hair-care-logo-and-symbol-vector-v19_251459-original.jpg",
     prices: [
       {
         title: "Lip wax",

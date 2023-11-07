@@ -7,12 +7,24 @@ export default {
         width: "width",
         "max-height": "max-heigth",
         "min-height": "min-heigth",
+        cards: "transform, border",
       },
     },
     colors: {
       logo: "#f4f4f4",
       footer: "#121212",
       "contact-container": "#B9E0AB",
+      "card-background": "#E5E5E5",
+      "card-button-background": "#f37449",
+    },
+    keyframes: {
+      "image-transition": {
+        "0%": { width: "0" },
+        "100%": { width: "100%" },
+      },
+    },
+    aspectRatio: {
+      "800/800": "auto 800 / 800",
     },
   },
   plugins: [],

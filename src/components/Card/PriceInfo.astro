@@ -6,7 +6,22 @@ interface Props extends PriceInfo {}
 const { title, price } = Astro.props;
 ---
 
-<div class="flex gap-5 w-full items-center justify-between text-xl">
+<div
+  class="priceInfoContainer flex relative bg-transparent px-5 z-[1] flex-[1] w-full items-center justify-between text-xl bg-[white]"
+>
   <span>{title}</span>
   <span class="font-bold">${price}</span>
 </div>
+
+<style>
+  .priceInfoContainer {
+    transition:
+      transform 0.15s ease,
+      border 0.15s ease;
+    &:hover {
+      transform: translateX(-0.5rem);
+      transform: translateY(-0.5rem);
+      border: solid 1px black;
+    }
+  }
+</style>
