@@ -1,0 +1,27 @@
+---
+import type { CardServicePriceInfoProps } from "../../types/card";
+import PriceInfo from "./PriceInfo.astro";
+
+interface Props extends CardServicePriceInfoProps {}
+
+const { image, orientation, prices, title } = Astro.props;
+---
+
+<article>
+  <h1 class="text-2xl text-center">{title}</h1>
+  <div
+    class={`flex items-center ${
+      orientation === "left" ? "md:flex-row" : "md:flex-row-reverse"
+    } flex-col`}
+  >
+    <img src={image} alt="" />
+
+    <section class="flex-[1] flex flex-col">
+      {
+        prices.map((info) => {
+          return <PriceInfo {...info} />;
+        })
+      }
+    </section>
+  </div>
+</article>

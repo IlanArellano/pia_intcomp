@@ -1,5 +1,13 @@
 ---
+import Card from "../components/Card/Card.astro";
 import Layout from "../layouts/Layout.astro";
+import { CardServicePriceInfo } from "../constants";
 ---
 
-<Layout title="Service">service</Layout>
+<Layout title="Service">
+  {
+    CardServicePriceInfo.map((item) => {
+      return <Card {...item} />;
+    })
+  }
+</Layout>

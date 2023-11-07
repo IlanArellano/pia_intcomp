@@ -1,0 +1,12 @@
+---
+import type { PriceInfo } from "../../types/card";
+
+interface Props extends PriceInfo {}
+
+const { title, price } = Astro.props;
+---
+
+<div class="flex gap-5 w-full items-center justify-between text-xl">
+  <span>{title}</span>
+  <span class="font-bold">${price}</span>
+</div>

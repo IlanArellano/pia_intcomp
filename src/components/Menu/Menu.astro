@@ -37,7 +37,8 @@ import MenuItemsContrainer from "./MenuItemsContrainer.astro";
   const headerHeight = header?.clientHeight;
 
   function onFixedNav() {
-    if (window.scrollY > headerHeight!) header?.classList.add("nav-scrolled");
+    if (window.scrollY > headerHeight! + 100)
+      header?.classList.add("nav-scrolled");
     else header?.classList.remove("nav-scrolled");
   }
 
@@ -47,11 +48,7 @@ import MenuItemsContrainer from "./MenuItemsContrainer.astro";
   const button = document.querySelector("#bar-menu");
   button?.addEventListener("click", () => {
     show = !show;
-    if (show) {
-      menuSmall!.style.height = `calc(100vh - ${headerHeight}px)`;
-    } else {
-      menuSmall!.style.height = "0";
-    }
+    menuSmall!.style.height = show ? `calc(100vh - ${headerHeight}px)` : "0";
   });
 </script>
 
