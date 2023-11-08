@@ -1,0 +1,13 @@
+---
+import { Stylist } from "../../types/stylists";
+interface Props extends Stylist {}
+const { image, name, occupation, description } = Astro.props;
+
+---
+
+<article>
+  <img class="rounded-full hover:rounded-none transition-[rounded]" src={image} alt="" />
+  <h1 class="text-2xl">{name}</h1>
+  <h2 class="text-xl">{occupation}</h2>
+  <p>{description}</p>
+</article>

@@ -2,14 +2,14 @@
 import type { CardServicePriceInfoProps } from "../../types/card";
 import PriceInfo from "./PriceInfo.astro";
 
-interface Props extends CardServicePriceInfoProps {}
+interface Props extends CardServicePriceInfoProps {
+  index: number;
+}
 
 const { image, orientation, prices, title } = Astro.props;
 ---
 
-<article
-  class="serviceCards px-5 my-20 md:px-10 lg:px20 flex flex-col min-h-[inherit]"
->
+<article class="serviceCards px-5 md:px-10 lg:px20 flex flex-col h-screen">
   <div class="title-container relative mb-5">
     <h1 class="text-4xl text-center">{title}</h1>
   </div>
@@ -18,14 +18,14 @@ const { image, orientation, prices, title } = Astro.props;
       orientation === "left" ? "lg:flex-row" : "lg:flex-row-reverse"
     } flex-col`}
   >
-    <section class="bg-[white] my-10 relative flex-[1]">
+    <section class="bg-[white] relative flex-[1] h-full">
       <div
-        class="w-full h-full bg-[black] animate-[image-transition_0.5s_ease-out] z-0"
+        class="image-animation absolute top-[25%] w-full h-[50%] left-[0] bg-[black] z-0"
       >
       </div>
       <img
         src={image}
-        class="absolute top-[0] left-[0] object-cover h-full w-full animate-[image-transition_1s_ease-out] z-[1]"
+        class="image-animation absolute top-[25%] w-full h-[50%] left-[0] object-cover z-[1]"
         alt=""
       />
     </section>
@@ -45,6 +45,10 @@ const { image, orientation, prices, title } = Astro.props;
   const cardShowedStatus: boolean[] = [];
 
   cards.forEach((card, i) => {
+    const title = card.querySelector(".title-container");
+    const imageAnimations =
+      card.querySelectorAll<HTMLElement>(".image-animation");
+
     card.style.opacity = "0";
     card.style.transform = "translateY(-50px)";
     cardShowedStatus.push(false);
@@ -52,8 +56,14 @@ const { image, orientation, prices, title } = Astro.props;
       const entry = entries[0];
       if (entry.isIntersecting && !cardShowedStatus[i]) {
         cardShowedStatus[i] = true;
-        card.style.opacity = "1";
-        card.style.transform = "translateY(0)";
+        setTimeout(() => {
+          card.style.opacity = "1";
+          card.style.transform = "translateY(0)";
+          imageAnimations.forEach((el, i) => {
+            el.style.animation = "image-transition 1s ease-out";
+          });
+          title?.classList.add("title-container-width");
+        }, 150);
       }
     });
     observer.observe(card);
@@ -63,15 +73,31 @@ const { image, orientation, prices, title } = Astro.props;
 <style>
   .title-container::after {
     content: "";
+    transition: transform 1s ease;
     position: absolute;
     bottom: -5px;
     width: 100%;
+    transform: scale(0);
     height: 2px;
     background-color: black;
   }
+
+  .title-container-width::after {
+    transform: scale(1);
+  }
+
   .serviceCards {
     transition:
       opacity 1s ease,
       transform 1s ease;
+  }
+
+  @keyframes image-transition {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
   }
 </style>

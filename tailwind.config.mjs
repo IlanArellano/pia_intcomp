@@ -17,12 +17,6 @@ export default {
       "card-background": "#E5E5E5",
       "card-button-background": "#f37449",
     },
-    keyframes: {
-      "image-transition": {
-        "0%": { width: "0" },
-        "100%": { width: "100%" },
-      },
-    },
     aspectRatio: {
       "800/800": "auto 800 / 800",
     },

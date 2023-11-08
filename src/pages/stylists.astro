@@ -1,0 +1,15 @@
+---
+import { STYLISTS } from "../constants";
+import Layout from "../layouts/Layout.astro";
+import StylistCard from "../components/Stylists/StylistCard.astro";
+---
+
+<Layout title="Stylists">
+  <div class="grid sm:grid-cols-3 grid-cols-1">
+    {
+      STYLISTS.map((stylits) => {
+        return <StylistCard {...stylits} />;
+      })
+    }
+  </div>
+</Layout>
