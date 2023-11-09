@@ -1,5 +1,5 @@
 import type { CardServicePriceInfoProps } from "../types/card";
-import { Stylist } from "../types/stylists";
+import type { Stylist } from "../types/stylists";
 
 export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
