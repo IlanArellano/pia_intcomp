@@ -16,6 +16,7 @@ export default {
       "contact-container": "#B9E0AB",
       "card-background": "#E5E5E5",
       "card-button-background": "#f37449",
+      "information-bottom": "#F3E598",
     },
     aspectRatio: {
       "800/800": "auto 800 / 800",

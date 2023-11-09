@@ -10,7 +10,7 @@ const { image, orientation, prices, title } = Astro.props;
 ---
 
 <article class="serviceCards px-5 md:px-10 lg:px20 flex flex-col h-screen">
-  <div class="title-container relative mb-5">
+  <div class="title-container mb-5">
     <h1 class="text-4xl text-center">{title}</h1>
   </div>
   <div
@@ -71,21 +71,6 @@ const { image, orientation, prices, title } = Astro.props;
 </script>
 
 <style>
-  .title-container::after {
-    content: "";
-    transition: transform 1s ease;
-    position: absolute;
-    bottom: -5px;
-    width: 100%;
-    transform: scale(0);
-    height: 2px;
-    background-color: black;
-  }
-
-  .title-container-width::after {
-    transform: scale(1);
-  }
-
   .serviceCards {
     transition:
       opacity 1s ease,

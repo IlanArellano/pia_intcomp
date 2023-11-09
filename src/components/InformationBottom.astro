@@ -1,0 +1,36 @@
+---
+
+---
+
+<article
+  class="information-button min-h-[150px] w-full fixed z-[10] bottom-[0] bg-information-bottom"
+>
+  <section class="relative w-full h-full">
+    <div class="flex flex-col items-center my-5 ml-5 mr-20">
+      <slot />
+    </div>
+    <div class="absolute top-[10%] left-[97%]">
+      <button class="information-close text-4xl">X</button>
+    </div>
+  </section>
+</article>
+
+<style>
+  .information-button {
+    transition: transform 2s cubic-bezier(0.23, 1, 0.32, 1);
+    transform: translateY(100%);
+  }
+</style>
+
+<script>
+  const information = document.querySelectorAll<HTMLElement>(
+    ".information-button"
+  );
+  information.forEach((el) => {
+    el.style.transform = `translateY(0)`;
+    const button = el.querySelector<HTMLButtonElement>(".information-close");
+    button?.addEventListener("click", () => {
+      el.style.transform = `translateY(100%)`;
+    });
+  });
+</script>

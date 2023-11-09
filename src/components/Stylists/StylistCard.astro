@@ -2,12 +2,31 @@
 import { Stylist } from "../../types/stylists";
 interface Props extends Stylist {}
 const { image, name, occupation, description } = Astro.props;
-
 ---
 
-<article>
-  <img class="rounded-full hover:rounded-none transition-[rounded]" src={image} alt="" />
-  <h1 class="text-2xl">{name}</h1>
-  <h2 class="text-xl">{occupation}</h2>
+<article class="stylist-card flex flex-col items-center">
+  <img
+    class="rounded-full w-[200px] hover:rounded-none transition-[border-radius] duration-500"
+    src={image}
+    alt=""
+  />
+  <div class="flex flex-col items-center gap-2">
+    <h1 class="text-2xl">{name}</h1>
+    <h2 class="text-xl">{occupation}</h2>
+  </div>
   <p>{description}</p>
 </article>
+
+<script>
+  const stylistsCards = document.querySelectorAll<HTMLElement>(".stylist-card");
+  const Sleep = (ms?: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms ?? 0));
+  stylistsCards.forEach((el) => (el.style.opacity = "0"));
+
+  for (const el of stylistsCards) {
+    await Sleep(500);
+    console.log("wait");
+    el.classList.add("animate-[startFading_1s_ease]");
+    el.style.opacity = "1";
+  }
+</script>
