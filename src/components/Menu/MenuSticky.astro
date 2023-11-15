@@ -1,0 +1,23 @@
+---
+import MenuItemsContrainer from "./MenuItemsContrainer.astro";
+---
+
+<header
+  id="nav-sticky"
+  class="fixed top-[0] z-[20] bg-nav transition-[transform] duration-500 -translate-y-full flex items-center sm:justify-center justify-end py-3 px-5 w-full"
+>
+  <nav>
+    <ul class="hidden justify-center sm:flex gap-5">
+      <MenuItemsContrainer />
+    </ul>
+    <button id="bar-menu" class="block sm:hidden">
+      <i class="fa-solid fa-bars text-3xl text-[white]"></i>
+    </button>
+  </nav>
+  <ul
+    id="menu-small"
+    class="bar-animation fixed px-5 flex flex-col gap-5 z-10 left-0 w-screen h-[0]"
+  >
+    <MenuItemsContrainer />
+  </ul>
+</header>

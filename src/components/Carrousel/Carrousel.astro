@@ -1,0 +1,125 @@
+---
+interface Props {
+  images: string[];
+}
+
+const { images } = Astro.props;
+---
+
+<article class="flex relative items-center">
+  <button
+    id="carrousel-left-button"
+    class="absolute top-[50%] left-[-3%] z-[10] bg-carrousel-button p-5 h-fit rounded-full"
+    >{`<`}</button
+  >
+  <div
+    class="carrousel-images-container flex-[1] relative relative w-[60vw] h-[calc(100vh-240px)]"
+  >
+    {
+      images.map((image, i) => {
+        return (
+          <img
+            src={image}
+            class={`absolute top-[0] w-full h-full left-[0] image-config`}
+            style={{
+              zIndex: -i,
+              transform: `translate(${20 * i}px, ${20 * i}px)`,
+            }}
+            alt=""
+          />
+        );
+      })
+    }
+  </div>
+  <button
+    id="carrousel-right-button"
+    class="absolute top-[50%] right-[-3%] z-[10] bg-carrousel-button p-5 h-fit rounded-full"
+    >{`>`}</button
+  >
+</article>
+
+<script>
+  const carrouselImages = document.querySelector<HTMLElement>(
+    ".carrousel-images-container"
+  );
+
+  const leftButton = document.querySelector<HTMLButtonElement>(
+    "#carrousel-left-button"
+  );
+  const rightButton = document.querySelector<HTMLButtonElement>(
+    "#carrousel-right-button"
+  );
+
+  type Orientation = "left" | "right";
+
+  function forEachImages(
+    fragment: HTMLElement,
+    orientation: Orientation,
+    cb: (index: number) => void
+  ) {
+    if (orientation === "left") {
+      for (let i = 0; i < fragment.childNodes.length; i++) {
+        cb(i);
+      }
+    } else {
+      for (let i = fragment.childNodes.length - 1; i >= 0; i--) {
+        cb(i);
+      }
+    }
+  }
+
+  function slideImages(orientation: "left" | "right") {
+    const images = carrouselImages?.querySelectorAll<HTMLImageElement>("img");
+    let copy = [...images!].map((x) => {
+      const el = x.cloneNode(true) as HTMLElement;
+      el.style.setProperty("opacity", "1");
+      return el;
+    });
+    const lastIndex = images!.length - 1;
+    const firstImage = copy[0].cloneNode() as HTMLElement;
+    const lastImage = copy[lastIndex].cloneNode() as HTMLElement;
+    copy[0] = lastImage;
+    copy[lastIndex] = firstImage;
+    while (carrouselImages!.firstChild) {
+      carrouselImages!.removeChild(carrouselImages!.firstChild);
+    }
+
+    carrouselImages!.append(...copy);
+
+    forEachImages(carrouselImages!, orientation, async (i) => {
+      const currImage = carrouselImages!.childNodes![i] as HTMLElement;
+      const translate = Math.abs(20 * (i - 1));
+
+      setTimeout(() => {
+        //  if (i === 0) currImage.style.setProperty("opacity", "0");
+        currImage.style.setProperty(
+          "transform",
+          `translate(-${translate}px, -${translate}px)`
+        );
+        currImage.style.setProperty("z-index", `-${i}`);
+      }, 200);
+    });
+  }
+
+  leftButton?.addEventListener("click", () => slideImages("left"));
+
+  rightButton?.addEventListener("click", () => slideImages("right"));
+</script>
+
+<style>
+  .image-config {
+    transition:
+      opacity 0.3s ease-out,
+      transform 0.3s ease-out;
+  }
+  .main-transition {
+    opacity: 0;
+  }
+  .left-transition {
+    transform: translate(-20px, -20px);
+  }
+
+  .right-transition {
+    transform: translate(20px, -20px);
+  }
+</style>

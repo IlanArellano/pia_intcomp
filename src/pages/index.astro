@@ -1,72 +1,52 @@
 ---
+import HomeCard from "../components/HomeCard.astro";
 import Layout from "../layouts/Layout.astro";
+import Carrousel from "../components/Carrousel/Carrousel.astro";
+import { CARROUSEL_IMAGES } from "../constants";
 ---
 
 <Layout title="Pensacola, FL">
-  <article>
-    <h1 class="text-3xl text-center">
-      Thank you for visiting Headhunter Hairstyling!
-    </h1>
-
-    <img src="img/oa5.jpg" alt="" />
-
-    <p>
-      We're excited that you found us and are interested in learning more about
-      our stylists and services. Take a look around, call us, or stop by and
-      we'll be happy to show you why we've been a staple in historic Pensacola
-      since 1978. We're conveniently located in Downtown Pensacola and within
-      walking distance to most businesses and restaurants in the area. Find out
-      more about us.
-    </p>
-
-    <h1>About us</h1>
-
-    <img src="img/oa6.jpg" alt="" />
-
-    <p class="aboutus">
-      We started Headhunter Hairstyling with a single goal in mind, to make you
-      feel like each cut or style is special!
-    </p>
-
-    <p class="aboutus">
-      Whatever your style, classic or fashion-forward, we have the experience to
-      bring your vision to life. With Barbers and Hairstylists on staff, we have
-      the right person who can help you with your styling needs. Stop by and
-      we'll be happy to show you why we've been a staple in historic Pensacola
-      since 1978.
-    </p>
-
-    <p class="aboutus">
-      Located on 205 South Baylen Street, we're conveniently located in Downtown
-      Pensacola. Within walking distance to most businesses and restaurants in
-      the Downtown area, swing by during your lunch or come by after work for a
-      cut or style.
-    </p>
-  </article>
-
-  <div class="contenedor-aside">
-    <aside>
-      <img src="img/oa.jpg" alt="" />
-      <h2>Titulo1</h2>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam
-        accusamus illo a! Illum deleniti a sapiente deserunt temporibus at
-        accusantium similique. Debitis dignissimos, cupiditate accusamus quidem
-        odio explicabo sequi? Repellendus?
-      </p>
-      <a href="pagina1.html"><button>Ver más</button></a>
-    </aside>
-
-    <aside>
-      <img src="img/oa3.jpg" alt="" />
-      <h2>Titulo2</h2>
-      <p>
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorum velit
-        enim totam quos quis veritatis nisi praesentium fugit aliquam. Magnam,
-        consectetur sequi saepe molestiae veniam debitis aut iste vitae
-        excepturi!
-      </p>
-      <a href="pagina2.html"><button>ver más</button></a>
-    </aside>
+  <div class="flex justify-center mb-20">
+    <Carrousel images={CARROUSEL_IMAGES} />
   </div>
+  <article class="flex flex-col gap-10">
+    <HomeCard
+      title="¡Gracias por visitar Headhunter Hairstyling!"
+      image="img/oa5.jpg"
+    >
+      Nos alegra que nos haya encontrado y que esté interesado en saber más
+      sobre nuestros estilistas y servicios. Echa un vistazo alrededor, llámenos
+      o pase por y estaremos encantados de mostrarle por qué hemos sido un
+      elemento básico en el histórico Pensacola desde 1978. Estamos
+      convenientemente ubicados en el centro de Pensacola y a poca distancia de
+      la mayoría de las empresas y restaurantes de la zona. Descubra más sobre <a
+        class="text-main-text-color font-bold"
+        href="#about">nosotros.</a
+      >
+    </HomeCard>
+
+    <HomeCard title="About us" image="img/oa6.jpg" orientation="right">
+      <p>
+        Empezamos Headhunter Hairstyling con un único objetivo en mente,
+        ¡hacerte sentir que cada corte o estilo es especial!
+      </p>
+
+      <p>
+        Sea cual sea su estilo, clásico o de moda, tenemos la experiencia para
+        llevar su visión a la vida. Con peluqueros y estilistas en el personal,
+        tenemos la persona adecuada que le puede ayudar con sus necesidades de
+        estilo. Pase por aquí y estaremos encantados de mostrarle por qué hemos
+        sido un elemento básico en el histórico Pensacola desde 1978.
+      </p>
+
+      <p>
+        Situado en 205 South Baylen Street, estamos convenientemente ubicados en
+        el centro de Pensacola. A poca distancia de la mayoría de las empresas y
+        restaurantes de la zona centro, pasar por durante su almuerzo o venir
+        después del trabajo para un corte o estilo.
+      </p>
+
+      <p></p>
+    </HomeCard>
+  </article>
 </Layout>

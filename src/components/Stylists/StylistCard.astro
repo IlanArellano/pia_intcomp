@@ -21,6 +21,7 @@ const { image, name, occupation, description } = Astro.props;
   const stylistsCards = document.querySelectorAll<HTMLElement>(".stylist-card");
   const Sleep = (ms?: number) =>
     new Promise((resolve) => setTimeout(resolve, ms ?? 0));
+
   stylistsCards.forEach((el) => (el.style.opacity = "0"));
 
   for (const el of stylistsCards) {

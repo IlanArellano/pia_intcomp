@@ -1,0 +1,58 @@
+---
+import MenuStatic from "./MenuStatic.astro";
+import MenuSticky from "./MenuSticky.astro";
+---
+
+<>
+  <MenuStatic />
+  <MenuSticky />
+</>
+
+<script>
+  let show = false;
+
+  //Static Nav
+  const navStatic = document.querySelector<HTMLHeadElement>("#nav-static");
+  const menuSmall = document.querySelector<HTMLElement>("#menu-small");
+
+  //Sticky Nav
+  const navSticky = document.querySelector<HTMLHeadElement>("#nav-sticky");
+
+  const navHeigth = navStatic?.clientHeight ?? 0;
+
+  function onFixedNav() {
+    if (window.scrollY > navHeigth + 100)
+      navSticky!.style.setProperty("transform", "translateY(0%)");
+    else navSticky!.style.setProperty("transform", "translateY(-100%)");
+  }
+
+  window.addEventListener("scroll", onFixedNav);
+
+  menuSmall!.style.top = `${navHeigth}px`;
+  const button = document.querySelector("#bar-menu");
+  button?.addEventListener("click", () => {
+    show = !show;
+    menuSmall!.style.height = show ? "fit-content" : "0";
+  });
+</script>
+
+<style is:global>
+  .bar-animation {
+    -webkit-transition: height 0.7s ease;
+    -moz-transition: height 0.7s ease;
+    -ms-transition: height 0.7s ease;
+    -o-transition: height 0.7s ease;
+    transition: height 0.7s ease;
+    background: #ffffff;
+    overflow: hidden;
+    height: 0;
+  }
+  .nav {
+    transition: position 0.3s ease;
+  }
+  .nav-scrolled {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+</style>

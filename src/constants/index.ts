@@ -178,3 +178,8 @@ export const STYLISTS: Stylist[] = [
       "Tony recently joined the Headhunter family. After 57 years of owning Esquire Barbership, Toni closed his doors and moved to Headhunter Hairstyling. Toni works Monday, Thursday, and Friday. He welcomes walk-in clients but you can also call him directly to book your appointments at 850-607-1715.",
   },
 ];
+
+export const CARROUSEL_IMAGES = [
+  "img/carrousel/img_1.webp",
+  "img/carrousel/img_2.webp",
+];

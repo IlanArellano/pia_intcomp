@@ -1,0 +1,29 @@
+---
+import MenuItemsContrainer from "./MenuItemsContrainer.astro";
+---
+
+<header
+  id="nav-static"
+  class="nav relative bg-nav flex items-center justify-between py-3 px-5"
+>
+  <section>
+    <img class="w-[120px]" src="img/oa4.jpg" alt="" />
+  </section>
+
+  <section class="menu">
+    <nav>
+      <ul class="hidden sm:flex gap-5">
+        <MenuItemsContrainer />
+      </ul>
+      <button id="bar-menu" class="block sm:hidden">
+        <i class="fa-solid fa-bars text-3xl text-[white]"></i>
+      </button>
+    </nav>
+  </section>
+  <ul
+    id="menu-small"
+    class="bar-animation fixed px-5 flex flex-col gap-5 z-10 left-0 w-screen h-[0]"
+  >
+    <MenuItemsContrainer />
+  </ul>
+</header>

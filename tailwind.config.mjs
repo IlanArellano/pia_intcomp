@@ -11,6 +11,10 @@ export default {
       },
     },
     colors: {
+      "main-text-color": "#03506F",
+      "carrousel-button": "#6C9D71",
+      nav: "#0A043C",
+      "nav-text-color": "#A3DDCB",
       logo: "#f4f4f4",
       footer: "#121212",
       "contact-container": "#B9E0AB",

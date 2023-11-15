@@ -1,0 +1,29 @@
+---
+import type { WithOrientation } from "../types";
+
+interface Props extends Partial<WithOrientation> {
+  title: string;
+  image: string;
+}
+const { title, orientation, image } = Astro.props;
+---
+
+<section
+  class={`flex gap-5 ${orientation === "right" ? "flex-row-reverse" : ""}`}
+>
+  <img src={image} class="h-full w-full" alt="" />
+
+  <div>
+    <h1
+      class={`text-4xl ${
+        orientation === "right" ? "text-right" : ""
+      } text-main-text-color`}
+    >
+      {title}
+    </h1>
+
+    <div class="text-justify text-xl">
+      <slot />
+    </div>
+  </div>
+</section>

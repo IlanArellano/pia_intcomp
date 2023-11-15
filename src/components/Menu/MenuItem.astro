@@ -6,14 +6,18 @@ interface Props {
 
 const { href, title } = Astro.props;
 const { pathname } = Astro.url;
+const isSelected = pathname === href;
 ---
 
 <li class="menu-item flex justify-between relative w-full">
   <div class="card card-transition"></div>
-  {pathname === href && <div class="card item-selected" />}
+  {isSelected && <div class="card item-selected" />}
   <a class="flex gap-3 w-full" href={href}>
-    <i class="fas fa-home text-xl"></i>
-    <span class="flex-[1] text-right">{title}</span>
+    <span
+      class={`flex-[1] text-right text-nav-text-color ${
+        isSelected ? "text-2xl" : "text-xl"
+      }`}>{title}</span
+    >
   </a>
 </li>
 
@@ -42,7 +46,7 @@ const { pathname } = Astro.url;
     top: -0.75rem;
   }
   .card-transition {
-    background: black;
+    background: white;
     transition: transform 0.3s ease;
     transform: scale(0);
     z-index: 2;
