@@ -1,138 +1,83 @@
 import type { CardServicePriceInfoProps } from "../types/card";
+import type { StoreInformation, ContactField } from "../types/store";
 import type { Stylist } from "../types/stylists";
 
 export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
-    title: "Cut",
-    image:
-      "https://i.etsystatic.com/25896921/r/il/7ef0c9/3762766092/il_570xN.3762766092_qii6.jpg",
+    title: "Corte",
+    image: "img/services/cut.png",
     prices: [
       {
-        title: "Children (Under 12)",
-        price: "17-25",
+        title: "Hombre",
+        price: 180,
       },
       {
-        title: "Men",
-        price: "18-25",
+        title: "Mujer",
+        price: 250,
       },
       {
-        title: "Women",
-        price: "45",
-      },
-      {
-        title: "Shampoo/Blow-Dry",
-        price: "17-25",
-      },
-      {
-        title: "Up-Do (Starts at)",
-        price: "35",
+        title: "Niños",
+        price: 150,
       },
     ],
     orientation: "left",
   },
   {
-    title: "Color",
-    image:
-      "https://i.pinimg.com/1200x/18/52/66/1852661ef9c6d8d09a070830267b929c.jpg",
+    title: "Tintes",
+    image: "img/services/color.png",
     prices: [
       {
-        title: "Mens Color",
-        price: "45",
+        title: "Tinte (Sin Decoloración)",
+        price: 850,
       },
       {
-        title: "Toner",
-        price: "45",
+        title: "Retoque Tinte",
+        price: 500,
       },
       {
-        title: "Cap Highlights (Men)",
-        price: "35",
-      },
-      {
-        title: "Cap Hightlights (Women)",
-        price: "55 +",
-      },
-      {
-        title: "Corrective Color",
-        price: "85",
+        title: "Efecto Alta Decoloración",
+        price: 2200,
       },
     ],
     orientation: "right",
   },
   {
-    title: "Foil Color",
-    image:
-      "https://www.creativefabrica.com/wp-content/uploads/2022/01/04/Woman-Hair-Logo-Vector-Template-Design-Graphics-22927566-1.jpg",
+    title: "Peinado",
+    image: "img/services/hair_style.png",
     prices: [
       {
-        title: "Full Foil with one color",
-        price: "85",
+        title: "Cabello Corto",
+        price: 570,
       },
       {
-        title: "With two colors",
-        price: "95",
+        title: "Cabello Mediano",
+        price: 720,
       },
       {
-        title: "With three colors",
-        price: "105",
-      },
-      {
-        title: "Partial Foil",
-        price: "65-80",
+        title: "Cabello Largo",
+        price: 830,
       },
     ],
     orientation: "left",
   },
   {
-    title: "Styling",
-    image:
-      "https://seeklogo.com/images/H/hair-cut-logo-CBDD899A7D-seeklogo.com.png",
+    title: "Cuidado del cabello",
+    image: "img/services/hair_care.png",
     prices: [
       {
-        title: "Chemical Straightner",
-        price: "85",
+        title: "Tratamiento capilar",
+        price: 2300,
       },
       {
-        title: "Keratin Complex",
-        price: "300",
+        title: "Planchado permanente",
+        price: 600,
       },
       {
-        title: "Semi-Perm",
-        price: "55",
-      },
-      {
-        title: "Permanent",
-        price: "55 +",
+        title: "Hidratación",
+        price: 900,
       },
     ],
     orientation: "right",
-  },
-  {
-    title: "Hair Care",
-    image:
-      "https://s.tmimgcdn.com/scr/1200x750/251400/hair-care-logo-and-symbol-vector-v19_251459-original.jpg",
-    prices: [
-      {
-        title: "Lip wax",
-        price: "20",
-      },
-      {
-        title: "Eyebrow wax",
-        price: "20",
-      },
-      {
-        title: "Chin wax",
-        price: "20",
-      },
-      {
-        title: "Brazilian wax Starts at",
-        price: "65",
-      },
-      {
-        title: "Electrolysis",
-        price: "0 (Call for Consultation)",
-      },
-    ],
-    orientation: "left",
   },
 ];
 
@@ -182,4 +127,82 @@ export const STYLISTS: Stylist[] = [
 export const CARROUSEL_IMAGES = [
   "img/carrousel/img_1.webp",
   "img/carrousel/img_2.webp",
+];
+
+export const STORE_INFORMATION: StoreInformation[] = [
+  {
+    field: "Teléfono",
+    value: "850-433-3308",
+    type: "text",
+  },
+  {
+    field: "Dirección",
+    value: "205 S Baylen St. Pensacola, FL 32502",
+    type: "text",
+  },
+  {
+    field: "Correo electrónico",
+    value: "info@headhunterhairstyling.com",
+    type: "link",
+  },
+];
+
+export const CONTACT_FIELDS: ContactField[] = [
+  {
+    key: "nombre",
+    field: "Nombre",
+    required: true,
+  },
+  {
+    key: "email",
+    field: "Correo Electrónico",
+    required: true,
+  },
+  {
+    key: "telefono",
+    field: "Telefóno",
+    required: true,
+  },
+  {
+    key: "servicio",
+    field: "Servicio",
+    required: true,
+    options: CardServicePriceInfo.map((x) => x.title),
+  },
+  {
+    key: "stylist",
+    field: "Seleccionar estilista",
+    required: true,
+    options: STYLISTS.map((x) => x.name),
+  },
+  {
+    key: "date",
+    field: "Seleccionar fecha",
+    required: true,
+  },
+  {
+    key: "horario",
+    field: "Seleccionar horario",
+    required: true,
+    options: [
+      "8:00 A.M.",
+      "9:00 A.M.",
+      "10:00 A.M.",
+      "11:00 A.M.",
+      "12:00 P.M.",
+      "1:00 P.M.",
+      "2:00 P.M.",
+      "3:00 P.M.",
+      "4:00 P.M.",
+      "5:00 P.M.",
+      "6:00 P.M.",
+      "7:00 P.M.",
+    ],
+  },
+  {
+    key: "mensaje",
+    field: "Mensaje",
+    required: true,
+    multiple: true,
+  },
 ];

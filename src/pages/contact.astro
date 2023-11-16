@@ -1,5 +1,57 @@
 ---
+import InformationBottom from "../components/InformationBottom.astro";
 import Layout from "../layouts/Layout.astro";
+import ContactForm from "../react/layout/ContactForm";
+import { STORE_INFORMATION } from "../constants";
 ---
 
-<Layout title="Contact">Contact</Layout>
+<Layout title="Contact">
+  <div
+    class="flex min-h-[70vh] items-stretch flex-col-reverse gap-5 md:flex-row"
+  >
+    <article class="flex-[1] min-h-max">
+      <gmp-map
+        class="w-full h-[300px] md:h-full"
+        center="30.409563064575195,-87.21627807617188"
+        zoom="14"
+        map-id="DEMO_MAP_ID"
+      >
+        <gmp-advanced-marker
+          position="30.409563064575195,-87.21627807617188"
+          title="My location"
+        >
+        </gmp-advanced-marker>
+      </gmp-map>
+    </article>
+    <article class="flex-[1] flex flex-col">
+      <section>
+        {
+          STORE_INFORMATION.map((info) => {
+            return (
+              <p>
+                <b>{info.field}:</b>{" "}
+                {info.type === "link" ? <a>{info.value}</a> : info.value}
+              </p>
+            );
+          })
+        }
+      </section>
+      <section class="flex-[1]">
+        <ContactForm client:load />
+      </section>
+    </article>
+  </div>
+  <InformationBottom>
+    <p class="text-xl">
+      <b>Nota:</b> Si desea concertar una cita con uno de nuestros estilistas,
+      llámenos al 850-433-3308 o al estilista con el que desea concertar la cita
+      para hablar de los horarios y reservar su cita. También puede agendar su
+      cita, desde nuestro sitio web, en el siguiente formulario.
+    </p>
+  </InformationBottom>
+</Layout>
+
+<script
+  async
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYOMPWc5jGhuWmuQKVeoAqid4ncheKO_U&callback=console.debug&libraries=maps,marker&v=beta"
+></script>

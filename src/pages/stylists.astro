@@ -3,6 +3,10 @@ import { STYLISTS } from "../constants";
 import Layout from "../layouts/Layout.astro";
 import StylistCard from "../components/Stylists/StylistCard.astro";
 import InformationBottom from "../components/InformationBottom.astro";
+
+const images = await Astro.glob("/public/img/gallery/*").then((files) =>
+  files.map((file) => file.default)
+);
 ---
 
 <Layout title="Stylists">
@@ -20,6 +24,28 @@ import InformationBottom from "../components/InformationBottom.astro";
       }
     </div>
   </article>
+  <article>
+    <h1>Galería</h1>
+    <section class="gallery-container">
+      {
+        images.map((image) => {
+          return (
+            <div class="card">
+              <div class="card__img">
+                <img
+                  class="gallery-images"
+                  src={image.src}
+                  width={image.width}
+                  height={image.height}
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          );
+        })
+      }
+    </section>
+  </article>
   <InformationBottom>
     <h1 class="text-3xl">Attention Hairstylists</h1>
     <p class="mx-10 text-[1.2rem]">
@@ -33,7 +59,82 @@ import InformationBottom from "../components/InformationBottom.astro";
   </InformationBottom>
 </Layout>
 
-<style></style>
+<style>
+  .gallery-images {
+    width: 100%;
+    display: block;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .gallery-container {
+    display: grid;
+    grid-template-columns: 25% 30% 15% 25%;
+    gap: 15px;
+    grid-template-rows: 50% 50%;
+    height: 80vh;
+    min-height: 460px;
+    padding: max(2vh, 1.5rem);
+
+    @include mQ(690px) {
+      height: 65vh;
+    }
+
+    @include mQ(470px) {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 35%);
+    }
+
+    .card {
+      border-radius: 25px;
+      box-shadow: -2px 4px 15px rgb(0 0 0 / 26%);
+
+      @include mQ(470px) {
+        grid-column: span 1;
+      }
+
+      &:nth-child(2) {
+        grid-column: 2/3;
+        grid-row: span 2;
+
+        @include mQ(690px) {
+          grid-column: span 1;
+          grid-row: span 1;
+        }
+      }
+
+      &:nth-child(3) {
+        grid-column: span 2;
+
+        @include mQ(690px) {
+          grid-column: 2/4;
+          grid-row: 1/2;
+        }
+      }
+
+      @include mQ(690px) {
+        &:nth-child(6) {
+          grid-column: 2/4;
+          grid-row: 2/3;
+        }
+      }
+
+      @include mQ(470px) {
+        &:nth-child(5) {
+          grid-column: span 2;
+        }
+      }
+
+      img {
+        border-radius: 25px;
+      }
+      .card__img {
+        position: relative;
+        height: 100%;
+      }
+    }
+  }
+</style>
 
 <script>
   const title = document.querySelector(".title-container");
