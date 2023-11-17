@@ -1,5 +1,6 @@
 ---
 import type { CardServicePriceInfoProps } from "../../types/card";
+import Title from "../Title.astro";
 import PriceInfo from "./PriceInfo.astro";
 
 interface Props extends CardServicePriceInfoProps {
@@ -9,28 +10,25 @@ interface Props extends CardServicePriceInfoProps {
 const { image, orientation, prices, title } = Astro.props;
 ---
 
-<article class="serviceCards px-5 md:px-10 lg:px20 flex flex-col h-screen">
-  <div class="title-container mb-5">
-    <h1 class="text-4xl text-center">{title}</h1>
-  </div>
+<article class="serviceCards px-5 md:px-10 lg:px20 flex flex-col">
   <div
-    class={`flex flex-[1] gap-3 items-stretch  ${
+    class={`flex flex-[1] gap-3 items-center ${
       orientation === "left" ? "lg:flex-row" : "lg:flex-row-reverse"
     } flex-col`}
   >
-    <section class="bg-[white] relative flex-[1] h-full">
-      <div
-        class="image-animation absolute top-[25%] w-full h-[50%] left-[0] bg-[black] z-0"
-      >
-      </div>
+    <section class="bg-[white] relative flex-[1] w-full h-[300px]">
       <img
         src={image}
-        class="image-animation absolute top-[25%] w-full h-[50%] left-[0] object-cover z-[1]"
+        class="image-animation absolute top-[0] w-[500px] h-full left-[25%] object-contain z-[1]"
         alt=""
       />
     </section>
 
-    <section class="flex-[1] bg-card-background flex flex-col">
+    <section class="flex-[1] flex flex-col gap-3">
+      <Title
+        title={title}
+        class={orientation === "left" ? "text-left" : "text-right"}
+      />
       {
         prices.map((info) => {
           return <PriceInfo {...info} />;
@@ -45,7 +43,6 @@ const { image, orientation, prices, title } = Astro.props;
   const cardShowedStatus: boolean[] = [];
 
   cards.forEach((card, i) => {
-    const title = card.querySelector(".title-container");
     const imageAnimations =
       card.querySelectorAll<HTMLElement>(".image-animation");
 
@@ -62,8 +59,8 @@ const { image, orientation, prices, title } = Astro.props;
           imageAnimations.forEach((el, i) => {
             el.style.animation = "image-transition 1s ease-out";
           });
-          title?.classList.add("title-container-width");
         }, 150);
+        observer.disconnect();
       }
     });
     observer.observe(card);
@@ -82,7 +79,7 @@ const { image, orientation, prices, title } = Astro.props;
       width: 0;
     }
     100% {
-      width: 100%;
+      width: 500px;
     }
   }
 </style>

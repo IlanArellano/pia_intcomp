@@ -4,11 +4,17 @@ export interface StoreInformation {
   type: "text" | "link";
 }
 
+export type ContactFiledType =
+  | "text"
+  | "text-multiple"
+  | "options"
+  | "calendar";
+
 export interface ContactField {
-  key: string;
+  keyname: string;
   field: string;
+  type: ContactFiledType;
   initialValue?: string;
   options?: string[];
   required?: boolean;
-  multiple?: boolean;
 }

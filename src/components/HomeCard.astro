@@ -1,5 +1,6 @@
 ---
 import type { WithOrientation } from "../types";
+import Title from "./Title.astro";
 
 interface Props extends Partial<WithOrientation> {
   title: string;
@@ -14,14 +15,7 @@ const { title, orientation, image } = Astro.props;
   <img src={image} class="h-full w-full" alt="" />
 
   <div>
-    <h1
-      class={`text-4xl ${
-        orientation === "right" ? "text-right" : ""
-      } text-main-text-color`}
-    >
-      {title}
-    </h1>
-
+    <Title title={title} class={orientation === "right" ? "text-right" : ""} />
     <div class="text-justify text-xl">
       <slot />
     </div>

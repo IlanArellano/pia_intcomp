@@ -16,7 +16,6 @@ export default {
       nav: "#0A043C",
       "nav-text-color": "#A3DDCB",
       logo: "#f4f4f4",
-      footer: "#121212",
       "contact-container": "#B9E0AB",
       "card-background": "#E5E5E5",
       "card-button-background": "#f37449",

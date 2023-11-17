@@ -1,0 +1,11 @@
+---
+interface Props extends astroHTML.JSX.HTMLAttributes {
+  title: string;
+}
+
+const { title, class: className, ...props } = Astro.props;
+---
+
+<h1 {...props} class={`text-4xl text-main-text-color font-bold ${className}`}>
+  {title}
+</h1>

@@ -1,7 +1,6 @@
 ---
 import InformationBottom from "../components/InformationBottom.astro";
 import Layout from "../layouts/Layout.astro";
-import ContactForm from "../react/layout/ContactForm";
 import { STORE_INFORMATION } from "../constants";
 ---
 
@@ -36,9 +35,7 @@ import { STORE_INFORMATION } from "../constants";
           })
         }
       </section>
-      <section class="flex-[1]">
-        <ContactForm client:load />
-      </section>
+      <section class="flex-[1]"></section>
     </article>
   </div>
   <InformationBottom>

@@ -3,6 +3,7 @@ import { STYLISTS } from "../constants";
 import Layout from "../layouts/Layout.astro";
 import StylistCard from "../components/Stylists/StylistCard.astro";
 import InformationBottom from "../components/InformationBottom.astro";
+import Title from "../components/Title.astro";
 
 const images = await Astro.glob("/public/img/gallery/*").then((files) =>
   files.map((file) => file.default)
@@ -11,9 +12,7 @@ const images = await Astro.glob("/public/img/gallery/*").then((files) =>
 
 <Layout title="Stylists">
   <article class="animate-[startFading_1s_ease]">
-    <div class="title-container mx-10 my-10">
-      <h1 class="text-center text-3xl">Our Stylists</h1>
-    </div>
+    <Title title="Nuestros estilistas" class="mx-10 my-10 text-center" />
     <div
       class="grid md:grid-cols-3 sm:grid-cols-2 grid-cols-1 md:gap-5 sm:gap-3 gap-1 my-10 px-10"
     >
@@ -25,7 +24,7 @@ const images = await Astro.glob("/public/img/gallery/*").then((files) =>
     </div>
   </article>
   <article>
-    <h1>Galería</h1>
+    <Title title="Galería" class="text-center" />
     <section class="gallery-container">
       {
         images.map((image) => {
@@ -46,18 +45,24 @@ const images = await Astro.glob("/public/img/gallery/*").then((files) =>
       }
     </section>
   </article>
-  <InformationBottom>
-    <h1 class="text-3xl">Attention Hairstylists</h1>
-    <p class="mx-10 text-[1.2rem]">
-      Attention Hairstylists Calling all hairstylists looking to own their own
-      business and become their own boss! Headhunter Hairstyling has openings
-      for anyone looking to expand their business and venture out into the
-      exciting world of hairstyling. For more information, <a href="/contact"
-        >click here.</a
-      >
-    </p>
-  </InformationBottom>
 </Layout>
+
+<script>
+  const GalleryContainer =
+    document.querySelector<HTMLElement>(".gallery-container");
+  GalleryContainer?.style.setProperty("opacity", "0");
+  GalleryContainer?.style.setProperty("transform", "translateY(-200px)");
+
+  const galleryObserver = new IntersectionObserver((entries) => {
+    const entry = entries[0];
+    if (entry.isIntersecting) {
+      GalleryContainer?.style.setProperty("opacity", "1");
+      GalleryContainer?.style.setProperty("transform", "none");
+      galleryObserver.disconnect();
+    }
+  });
+  galleryObserver.observe(GalleryContainer!);
+</script>
 
 <style>
   .gallery-images {
@@ -75,6 +80,9 @@ const images = await Astro.glob("/public/img/gallery/*").then((files) =>
     height: 80vh;
     min-height: 460px;
     padding: max(2vh, 1.5rem);
+    transition:
+      opacity 2s ease-out,
+      transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
 
     @include mQ(690px) {
       height: 65vh;
@@ -135,10 +143,3 @@ const images = await Astro.glob("/public/img/gallery/*").then((files) =>
     }
   }
 </style>
-
-<script>
-  const title = document.querySelector(".title-container");
-  setTimeout(() => {
-    title?.classList.add("title-container-width");
-  }, 100);
-</script>

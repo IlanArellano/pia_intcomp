@@ -149,40 +149,47 @@ export const STORE_INFORMATION: StoreInformation[] = [
 
 export const CONTACT_FIELDS: ContactField[] = [
   {
-    key: "nombre",
+    keyname: "nombre",
     field: "Nombre",
+    type: "text",
     required: true,
   },
   {
-    key: "email",
+    keyname: "email",
     field: "Correo Electrónico",
+    type: "text",
     required: true,
   },
   {
-    key: "telefono",
+    keyname: "telefono",
     field: "Telefóno",
+    type: "text",
     required: true,
   },
   {
-    key: "servicio",
+    keyname: "servicio",
     field: "Servicio",
+    type: "options",
     required: true,
     options: CardServicePriceInfo.map((x) => x.title),
   },
   {
-    key: "stylist",
+    keyname: "stylist",
     field: "Seleccionar estilista",
+    type: "options",
     required: true,
     options: STYLISTS.map((x) => x.name),
   },
   {
-    key: "date",
+    keyname: "date",
     field: "Seleccionar fecha",
+    type: "calendar",
     required: true,
   },
   {
-    key: "horario",
+    keyname: "horario",
     field: "Seleccionar horario",
+    type: "options",
     required: true,
     options: [
       "8:00 A.M.",
@@ -200,9 +207,9 @@ export const CONTACT_FIELDS: ContactField[] = [
     ],
   },
   {
-    key: "mensaje",
+    keyname: "mensaje",
     field: "Mensaje",
+    type: "text-multiple",
     required: true,
-    multiple: true,
   },
 ];

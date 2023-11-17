@@ -4,6 +4,11 @@ import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
+  vite: {
+    ssr: {
+      external: ["primereact"],
+    },
+  },
   integrations: [
     tailwind(),
     react({
