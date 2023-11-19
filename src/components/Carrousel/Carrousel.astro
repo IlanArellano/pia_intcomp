@@ -1,4 +1,5 @@
 ---
+import CarrouselButton from "./CarrouselButton.astro";
 interface Props {
   images: string[];
 }
@@ -6,12 +7,8 @@ interface Props {
 const { images } = Astro.props;
 ---
 
-<article class="flex relative items-center">
-  <button
-    id="carrousel-left-button"
-    class="absolute top-[50%] left-[-3%] z-[10] bg-carrousel-button p-5 h-fit rounded-full"
-    >{`<`}</button
-  >
+<article class="flex relative items-center w-[90%] md:w-fit">
+  <CarrouselButton orientation="left" />
   <div
     class="carrousel-images-container flex-[1] relative relative w-[60vw] h-[calc(100vh-240px)]"
   >
@@ -31,11 +28,7 @@ const { images } = Astro.props;
       })
     }
   </div>
-  <button
-    id="carrousel-right-button"
-    class="absolute top-[50%] right-[-3%] z-[10] bg-carrousel-button p-5 h-fit rounded-full"
-    >{`>`}</button
-  >
+  <CarrouselButton orientation="right" />
 </article>
 
 <script>
@@ -86,7 +79,7 @@ const { images } = Astro.props;
 
     carrouselImages!.append(...copy);
 
-    forEachImages(carrouselImages!, orientation, async (i) => {
+    forEachImages(carrouselImages!, orientation, (i) => {
       const currImage = carrouselImages!.childNodes![i] as HTMLElement;
       const translate = Math.abs(20 * (i - 1));
 

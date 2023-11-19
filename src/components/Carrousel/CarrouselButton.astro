@@ -1,0 +1,17 @@
+---
+import type { Orientation } from "../../types";
+interface Props {
+  orientation: Orientation;
+}
+const { orientation } = Astro.props;
+const positions: Record<Orientation, string> = {
+  left: "left-[0] md:left-[-3%]",
+  right: "right-[0] md:right-[-3%]",
+};
+---
+
+<button
+  id={`carrousel-${orientation}-button`}
+  class={`absolute top-[50%] ${positions[orientation]} z-[10] bg-[rgba(0,0,0,0.7)] text-[white] p-5 h-fit rounded-full`}
+  >{orientation === "left" ? "<" : ">"}</button
+>

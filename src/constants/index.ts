@@ -213,3 +213,48 @@ export const CONTACT_FIELDS: ContactField[] = [
     required: true,
   },
 ];
+
+interface displayFields {
+  display: string;
+  getValue: (obj: ContactField & { value: string }) => string;
+}
+
+export const DISPLAY_FIELDS: Record<string, displayFields> = {
+  nombre: {
+    display: "Nombre",
+    getValue: (obj) => obj.value,
+  },
+  email: {
+    display: "Email",
+    getValue: (obj) => obj.value,
+  },
+  telefono: {
+    display: "Teléfono",
+    getValue: (obj) => obj.value,
+  },
+  servicio: {
+    display: "Servicio",
+    getValue: (obj) => obj.options?.[Number(obj.value)]!,
+  },
+  stylist: {
+    display: "Estilista",
+    getValue: (obj) => obj.options?.[Number(obj.value)]!,
+  },
+  date: {
+    display: "Fecha",
+    getValue: (obj) => {
+      const dateFormat = Intl.DateTimeFormat("es-MX", {
+        dateStyle: "medium",
+      });
+      return dateFormat.format(obj.value as unknown as Date);
+    },
+  },
+  horario: {
+    display: "Horario",
+    getValue: (obj) => obj.options?.[Number(obj.value)]!,
+  },
+  mensaje: {
+    display: "Mensaje",
+    getValue: (obj) => obj.value,
+  },
+};

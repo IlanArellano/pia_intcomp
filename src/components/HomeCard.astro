@@ -10,7 +10,9 @@ const { title, orientation, image } = Astro.props;
 ---
 
 <section
-  class={`flex gap-5 ${orientation === "right" ? "flex-row-reverse" : ""}`}
+  class={`flex flex-col md:flex-row gap-5 ${
+    orientation === "right" ? "flex-row-reverse" : ""
+  }`}
 >
   <img src={image} class="h-full w-full" alt="" />
 

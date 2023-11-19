@@ -3,7 +3,7 @@
   class="bg-nav flex flex-col md:flex-row gap-5 justify-between items-center w-full text-[white] px-3 py-10 md:px-5 lg:px-7"
 >
   <section>
-    <button>
+    <button id="footer-go-to-top">
       <h1 class="text-3xl">HeadHunter Hairstyling</h1>
     </button>
   </section>
@@ -15,25 +15,35 @@
     <span class="border-l-[2px] px-3">info@headhunterhairstyling.com</span>
   </section>
   <section class="flex gap-3">
-    <img
-      src="https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e0678ef25486466ba65ef6ad47b559e1.png"
-      alt=""
-    />
-    <img
-      src="https://static.wixstatic.com/media/c4392d634a0148fda8b7b2b0ad98293b.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/c4392d634a0148fda8b7b2b0ad98293b.png"
-      alt=""
-    />
-    <img
-      src="https://static.wixstatic.com/media/046efec37b594017ac59d36499fc32a9.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/046efec37b594017ac59d36499fc32a9.png"
-      alt=""
-    />
+    <a target="_blank" href="https://www.facebook.com/headhunterhairstyling">
+      <img
+        src="https://static.wixstatic.com/media/e0678ef25486466ba65ef6ad47b559e1.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/e0678ef25486466ba65ef6ad47b559e1.png"
+        alt=""
+      />
+    </a>
+    <a target="_blank" href="https://twitter.com/HeadhunterHair">
+      <img
+        class="w-[50px] h-[50px] rounded-full"
+        src="https://logowik.com/content/uploads/images/twitter-x5265.logowik.com.webp"
+        alt=""
+      />
+    </a>
+    <a
+      target="_blank"
+      href="https://yelp.com/biz/head-hunter-hair-styling-pensacola?search_key=87603"
+    >
+      <img
+        src="https://static.wixstatic.com/media/046efec37b594017ac59d36499fc32a9.png/v1/fill/w_50,h_50,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/046efec37b594017ac59d36499fc32a9.png"
+        alt=""
+      />
+    </a>
   </section>
 </footer>
 
 <script>
-  const footer = document.querySelector("#footer");
+  const goToTop = document.querySelector("#footer-go-to-top");
 
-  footer?.addEventListener("click", () => {
+  goToTop?.addEventListener("click", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>

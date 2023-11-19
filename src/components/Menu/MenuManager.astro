@@ -13,26 +13,31 @@ import MenuSticky from "./MenuSticky.astro";
 
   //Static Nav
   const navStatic = document.querySelector<HTMLHeadElement>("#nav-static");
-  const menuSmall = document.querySelector<HTMLElement>("#menu-small");
 
   //Sticky Nav
   const navSticky = document.querySelector<HTMLHeadElement>("#nav-sticky");
 
-  const navHeigth = navStatic?.clientHeight ?? 0;
+  const navMeasures = [
+    navStatic?.clientHeight ?? 0,
+    navSticky?.clientHeight ?? 0,
+  ];
 
   function onFixedNav() {
-    if (window.scrollY > navHeigth + 100)
+    if (window.scrollY > navMeasures[0] + 20)
       navSticky!.style.setProperty("transform", "translateY(0%)");
     else navSticky!.style.setProperty("transform", "translateY(-100%)");
   }
 
   window.addEventListener("scroll", onFixedNav);
 
-  menuSmall!.style.top = `${navHeigth}px`;
-  const button = document.querySelector("#bar-menu");
-  button?.addEventListener("click", () => {
-    show = !show;
-    menuSmall!.style.height = show ? "fit-content" : "0";
+  const menusSmall = document.querySelectorAll<HTMLElement>("#menu-small");
+  const buttons = document.querySelectorAll("#bar-menu");
+  buttons.forEach((button, idx) => {
+    menusSmall[idx].style.top = `${navMeasures[idx]}px`;
+    button?.addEventListener("click", () => {
+      show = !show;
+      menusSmall[idx].style.height = show ? "fit-content" : "0";
+    });
   });
 </script>
 

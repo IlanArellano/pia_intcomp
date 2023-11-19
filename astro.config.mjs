@@ -6,7 +6,7 @@ import react from "@astrojs/react";
 export default defineConfig({
   vite: {
     ssr: {
-      external: ["primereact"],
+      noExternal: ["primereact", "primeicons"],
     },
   },
   integrations: [

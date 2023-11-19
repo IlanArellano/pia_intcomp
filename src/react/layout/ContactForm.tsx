@@ -1,10 +1,11 @@
-import React, { useState, type ComponentType, type FormEvent } from "react";
+import { useMemo, useState, type ComponentType, type FormEvent } from "react";
 import { InputText } from "primereact/inputtext";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Dropdown } from "primereact/dropdown";
 import { Calendar } from "primereact/calendar";
 import { Dialog } from "primereact/dialog";
-import { CONTACT_FIELDS } from "../../constants/index";
+import { Button } from "primereact/button";
+import { CONTACT_FIELDS, DISPLAY_FIELDS } from "../../constants";
 import type { ContactField, ContactFiledType } from "../../types/store";
 import type { DropdownOptions } from "../../types";
 
@@ -46,7 +47,12 @@ const RenderField = (
 
 export default function ContactForm() {
   const [showModal, setShowModal] = useState<boolean>(false);
-  const [values, setValues] = useState<{ [key: string]: string }>({});
+  const [values, setValues] = useState<{ [key: string]: string }>(() =>
+    CONTACT_FIELDS.reduce(
+      (prev, field) => ({ ...prev, [field.keyname]: "" }),
+      {}
+    )
+  );
 
   const onChange = (key: string, newValue: string) => {
     setValues((prev) => ({
@@ -61,15 +67,55 @@ export default function ContactForm() {
     setShowModal(true);
   };
 
+  const hasDisabled = useMemo(
+    () =>
+      Object.keys(values).some(
+        (key) =>
+          values[key] === null ||
+          values[key] === undefined ||
+          values[key] === ""
+      ),
+    [values]
+  );
+
   return (
     <>
       <Dialog
-        header="Agendar Cita"
+        header={
+          <>
+            <p>Agendar Cita</p>
+            <p>La cita fue agendada con éxito</p>
+          </>
+        }
+        headerClassName="text-center"
         visible={showModal}
-        style={{ width: "50vw" }}
+        className="w-screen md:w-[50vw]"
+        contentClassName="p-10"
         onHide={() => setShowModal(false)}
       >
-        <p className="m-0">Informacion enviada exitosamente!</p>
+        {showModal &&
+          Object.keys(values).map((key) => {
+            const content = DISPLAY_FIELDS[key];
+            const findContact = CONTACT_FIELDS.find((x) => x.keyname === key);
+            if (!findContact || !content) return null;
+            return (
+              <pre key={key}>
+                <p>
+                  <b>{content.display}</b>:{" "}
+                  {content.getValue({
+                    ...findContact,
+                    value: values[key],
+                  })}
+                </p>
+              </pre>
+            );
+          })}
+        <Button
+          onClick={() => setShowModal(false)}
+          className="bg-nav-text-color w-full text-nav text-2xl justify-center font-bold py-3"
+        >
+          Cerrar
+        </Button>
       </Dialog>
       <form
         id="contact-form"
@@ -79,15 +125,19 @@ export default function ContactForm() {
         {CONTACT_FIELDS.map((field) => {
           return (
             <RenderField
+              key={field.keyname}
               {...field}
               value={values[field.keyname]}
               onChange={onChange}
             />
           );
         })}
-        <button class="bg-nav-text-color text-nav text-2xl font-bold py-5">
+        <Button
+          disabled={hasDisabled}
+          className="bg-nav-text-color text-nav text-2xl justify-center font-bold py-5"
+        >
           Agendar Cita
-        </button>
+        </Button>
       </form>
     </>
   );
