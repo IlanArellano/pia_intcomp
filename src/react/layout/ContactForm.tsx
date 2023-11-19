@@ -63,7 +63,6 @@ export default function ContactForm() {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log({ values });
     setShowModal(true);
   };
 

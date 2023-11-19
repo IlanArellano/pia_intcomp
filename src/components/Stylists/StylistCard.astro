@@ -26,7 +26,6 @@ const { image, name, occupation, description } = Astro.props;
 
   for (const el of stylistsCards) {
     await Sleep(500);
-    console.log("wait");
     el.classList.add("animate-[startFading_1s_ease]");
     el.style.opacity = "1";
   }

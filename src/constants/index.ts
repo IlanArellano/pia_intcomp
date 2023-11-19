@@ -144,6 +144,9 @@ export const STORE_INFORMATION: StoreInformation[] = [
     field: "Correo electrónico",
     value: "info@headhunterhairstyling.com",
     type: "link",
+    get link() {
+      return `mailto:${this.value}`;
+    },
   },
 ];
 

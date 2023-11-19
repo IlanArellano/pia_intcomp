@@ -30,7 +30,13 @@ import { STORE_INFORMATION } from "../constants";
             return (
               <p>
                 <b>{info.field}:</b>{" "}
-                {info.type === "link" ? <a>{info.value}</a> : info.value}
+                {info.type === "link" ? (
+                  <a class="text-[blue]" target="_blank" href={info.link}>
+                    {info.value}
+                  </a>
+                ) : (
+                  info.value
+                )}
               </p>
             );
           })

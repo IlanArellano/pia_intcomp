@@ -2,6 +2,7 @@ export interface StoreInformation {
   field: string;
   value: string;
   type: "text" | "link";
+  link?: string;
 }
 
 export type ContactFiledType =
