@@ -84,43 +84,43 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
 export const STYLISTS: Stylist[] = [
   {
     name: "ELLEN AND JEFF HUNT",
-    occupation: "Owners and Operators",
+    occupation: "Propietarios y Operadores",
     image:
       "https://static.wixstatic.com/media/7e3fa0_32d9346bea7446489a0d2298e0f0a94a~mv2.jpg/v1/crop/x_101,y_0,w_523,h_523/fill/w_320,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/_DSF0034_1995%25255B1%25255D_edited_edited_j.jpg",
     description:
-      "We started Headhunters in 1978 with a single target, you! As a team we have worked together for over 41 years to build Headhunters into a Pensacola household name.Whether you're seeing us for your regular appointment, getting trimmed up for that important meeting, or getting dressed up for an extravagant event, we will get you there. Whatever your style or occasion, we want to be the difference.",
+      "Empezamos Headhunters en 1978 con un solo objetivo, ¡usted! Como equipo hemos trabajado juntos durante más de 41 años para construir Headhunters en un nombre familiar Pensacola.Whether usted nos está viendo para su cita regular, recortar para esa reunión importante, o vestirse para un evento extravagante, vamos a llegar hasta allí. Sea cual sea su estilo u ocasión, queremos marcar la diferencia.",
   },
   {
     name: "THERESA BAGGETT",
-    occupation: "40 Years Experience",
+    occupation: "40 años de experiencia",
     image:
       "https://static.wixstatic.com/media/7e3fa0_de1a71e4135c4c21ac877b0989d5d317~mv2.jpg/v1/fill/w_320,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/17-4-18-4610_edited.jpg",
     description:
-      "Theresa has been with HeadHunter Hairstyling since 1981. She's a Pensacola native and has been a stylist and cosmetologist for 40 years now. A fabulous Master Stylist with multiple talents, she loves doing hair. Whether it's color, cuts (long or short) and everything in between! Reach out and give Theresa a call for a consultation. No matter what you need, she's got you covered.",
-  },
-  {
-    name: "KRISSY KAYLOR",
-    occupation: "12 Years Experience",
-    image:
-      "https://static.wixstatic.com/media/7e3fa0_009b8a57d6ed491e81a8c0a1aabb360e~mv2.jpg/v1/fill/w_320,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/11-4-18-5528_edited.jpg",
-    description:
-      "Krissy is originally from Manhattan, KS. She graduated George Stone as a color specialist and has been doing hair for 12 years now. Since then she has stayed current on the latest trends and styles by taking numerous classes and following all of the hottest celebrities. Krissy really enjoys working with people and making sure all of their hair needs are met. She will go above and beyond for her clientele and makes it a point to be available nights and weekends to fit their needs. You can call Krissy directly to book your appointments at 850-261-1869.",
+      "Theresa ha estado con HeadHunter Hairstyling desde 1981. Ella es nativa de Pensacola y ha sido estilista y cosmetóloga por 40 años. Una fabulosa Maestra Estilista con múltiples talentos, a ella le encanta hacer peinados. ¡Ya se trate de color, cortes (largos o cortos) y todo lo demás! Acércate y llama a Theresa para una consulta. No importa lo que necesites, ella te tiene cubierto.",
   },
   {
     name: "KATHY MORGAN",
-    occupation: "20 Years Experience",
+    occupation: "20 años de experiencia",
     image:
       "https://static.wixstatic.com/media/7e3fa0_7182999cf0804e96b795b015c9885b22~mv2.jpg/v1/fill/w_320,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/13-4-18-2148_edited.jpg",
     description:
-      "Kathy joined our staff as a wonderful package with Maurene. As a Master Stylist, she exudes a beachy free lifestyle that has grown her business to the vast clientele she has now. You can call Kathy directly to book your appointments at 850-516-0135.",
+      "Kathy se unió a nuestro personal como un paquete maravilloso con Maurene. Como Master Stylist, ella exuda un estilo de vida libre de playa que ha hecho crecer su negocio a la vasta clientela que tiene ahora. Puede llamar a Kathy directamente para reservar sus citas al 850-516-0135.",
+  },
+  {
+    name: "KRISSY KAYLOR",
+    occupation: "12 años de experiencia",
+    image:
+      "https://static.wixstatic.com/media/7e3fa0_009b8a57d6ed491e81a8c0a1aabb360e~mv2.jpg/v1/fill/w_320,h_320,al_c,q_80,usm_0.66_1.00_0.01,enc_auto/11-4-18-5528_edited.jpg",
+    description:
+      "Krissy es originaria de Manhattan, KS. Se graduó George Stone como especialista en color y ha estado haciendo el pelo durante 12 años. Desde entonces se ha mantenido al día sobre las últimas tendencias y estilos tomando numerosas clases y siguiendo todas las celebridades más calientes. Krissy realmente le gusta trabajar con la gente y asegurarse de que todas sus necesidades de cabello se cumplen. Ella va más allá por su clientela y hace un punto para estar disponible las noches y fines de semana para satisfacer sus necesidades. Usted puede llamar a Krissy directamente para reservar sus citas en 850-261-1869.",
   },
   {
     name: "TONY RIHA",
-    occupation: "57 Years Experience",
+    occupation: "57 años de experiencia",
     image:
       "https://static.wixstatic.com/media/7e3fa0_ff87b45489ef460ebbf292633cb95684~mv2.png/v1/fill/w_320,h_320,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/IMG_3685_edited.png",
     description:
-      "Tony recently joined the Headhunter family. After 57 years of owning Esquire Barbership, Toni closed his doors and moved to Headhunter Hairstyling. Toni works Monday, Thursday, and Friday. He welcomes walk-in clients but you can also call him directly to book your appointments at 850-607-1715.",
+      "Tony se unió recientemente a la familia Headhunter. Después de 57 años como propietario de Esquire Barbership, Toni cerró sus puertas y se trasladó a Headhunter Hairstyling. Toni trabaja lunes, jueves y viernes. Da la bienvenida a los clientes sin cita previa, pero también puede llamarle directamente para reservar sus citas al 850-607-1715.",
   },
 ];
 
