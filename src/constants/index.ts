@@ -5,7 +5,7 @@ import type { Stylist } from "../types/stylists";
 export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   {
     title: "Corte",
-    image: "img/services/cut.png",
+    image: "/img/services/cut.png",
     prices: [
       {
         title: "Hombre",
@@ -24,7 +24,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   },
   {
     title: "Tintes",
-    image: "img/services/color.png",
+    image: "/img/services/color.png",
     prices: [
       {
         title: "Tinte (Sin Decoloración)",
@@ -43,7 +43,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   },
   {
     title: "Peinado",
-    image: "img/services/hair_style.png",
+    image: "/img/services/hair_style.png",
     prices: [
       {
         title: "Cabello Corto",
@@ -62,7 +62,7 @@ export const CardServicePriceInfo: CardServicePriceInfoProps[] = [
   },
   {
     title: "Cuidado del cabello",
-    image: "img/services/hair_care.png",
+    image: "/img/services/hair_care.png",
     prices: [
       {
         title: "Tratamiento capilar",
@@ -125,8 +125,8 @@ export const STYLISTS: Stylist[] = [
 ];
 
 export const CARROUSEL_IMAGES = [
-  "img/carrousel/img_1.webp",
-  "img/carrousel/img_2.webp",
+  "/img/carrousel/img_1.webp",
+  "/img/carrousel/img_2.webp",
 ];
 
 export const STORE_INFORMATION: StoreInformation[] = [
